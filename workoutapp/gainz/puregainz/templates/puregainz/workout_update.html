@@ -1,0 +1,31 @@
+{% extends 'header.html' %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        {{ exercise_list }}
+            <!-- <div class = "input-field">
+                Exercise
+                {{ form.as_p }}
+            </div>
+            <div class = "input-field">
+                Reps
+                {{ form.rep }}
+            </div>
+            <div class = "input-field">
+                Weight
+                {{ form.weight }}
+            </div> -->
+            
+        <!-- <input type="date" class="date_selector" name="date_selected"> -->
+        <!-- <div>
+            {% for field in workoutChild %}
+                    <label for='{{field.id}}-rep'>Reps</label>
+                    <input value = '{{field.rep}}' name = '{{field.id}}-rep' type = "number" step="1">
+                    <label for='{{field.id}}-weight'>Weight</label>
+                    <input id = '{{field.weight}}' name = '{{field.id}}-weight' type = "number" step="0.01">
+                </div>
+            {% endfor %}
+        </div> -->
+        <input type="submit" value="Save">
+    </form>
+ {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'header.html' %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="date" class="datepicker" name="date_selected">
+            {% for exercise in exercise_list %}
+                <div>
+                    <div class="switch">
+                        <label>
+                        {{ form.exercise }}
+                        <input type="checkbox" name="{{ exercise.0 }}">
+                        <span class="lever"></span>
+                        {{ exercise.1 }}
+                        </label>
+                    </div>
+                    <label for='{{exercise.0}}-rep'>Reps</label>
+                    <input id = '{{exercise.0}}-rep' name = '{{exercise.0}}-rep' type = "number" step="1">
+                    <label for='{{exercise.0}}-weight'>Weight</label>
+                    <input id = '{{exercise.0}}-weight' name = '{{exercise.0}}-weight' type = "number" step="0.01">
+                </div>
+            {% endfor %}
+        </div>
+
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'header.html' %}
+{% block content %}
+    {{ object }}
+    {% for instance in object.workoutChild.all %}
+        <div>
+            {{ instance }}
+        </div>
+
+    {% endfor %}
+    <div>
+            <a class="waves-effect waves-light btn blue lighten-2" href="/gainz/update/{{object.id}}">Edit</a>
+        </div>
+    <div>
+            <a class="waves-effect waves-light btn blue lighten-2" href="/gainz/list">Back to List</a>
+        </div>
+    
+{% endblock %}
